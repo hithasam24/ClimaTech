@@ -3,11 +3,17 @@
 body {
     font-family:'Courier New', Courier, monospace;
     text-align: center;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("dh4TkZ5ZTp-AuUWPWMye7w.webp");
 }
 
 #board {
     /* background-color: skyblue; */
-    background-color: #15ff00; /* Yellowish color */
+    background-color: #73b76c; /* Yellowish color */
         color: #064d26;
         font-size: 1.2em;
         display: flex;
@@ -20,4 +26,5 @@ body {
         position: relative;
         overflow: hidden;
         border: 2px solid #fff;
+        margin: 20px;
 }
