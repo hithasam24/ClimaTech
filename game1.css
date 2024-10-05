@@ -1,0 +1,23 @@
+
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#board {
+    /* background-color: skyblue; */
+    background-color: #15ff00; /* Yellowish color */
+        color: #064d26;
+        font-size: 1.2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #fff;
+}
