@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page with Next Button</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <STYLE> * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Press Start 2P', cursive; /* Game-style font */;
+    background-image: url('UG9KXRgvR4-JIgE3u-8u3Q.webp'); /* Game-like background */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  height: 100vh;
+  }
+  
+  .video-container {
+    margin-bottom: 20px;
+    width: 300%; /* Ensure it takes up full width of its container */
+  display: flex;
+  justify-content: center;
+  }
+  
+  video {
+    width: 300%; /* Increase or decrease the percentage to adjust size */
+    max-width: 1200px; /* Set maximum width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: left;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .next-button, .back-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .next-button:hover,.back-button:hover {
+    background-color: #45a049;
+  }
+  </STYLE>
+</head>
+<body>
+
+  <div class="container">
+    <div class="video-container">
+      <video controls>
+        <!-- Replace 'your-canva-video.mp4' with your exported Canva video file -->
+        <source src="your-canva-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="button-container">
+        <button class="back-button" onclick="goToPreviousPage()">BACK</button>
+        <button class="next-button" onclick="goToNextPage()">NEXT</button>
+      
+    </div>
+  </div>
+
+  <script>
+    function goToNextPage() {
+      window.location.href = "nextpage.html"; // Replace with your next page URL
+
+    }
+    function goToPreviousPage() {
+      window.history.back(); // Go back to the previous page
+    }
+  </script>
+
+</body>
+</html>

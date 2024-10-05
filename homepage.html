@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style> * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Press Start 2P', cursive; /* Game-style font */;
+}
+
+.bgimg {
+    background-image: url('zsjEPrD3QourBSuRuRlAFw.webp'); /* Replace with a relevant image URL */
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.sliding-text {
+    font-size: 7em;
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.start-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    color: white;
+    background-color: #fcca02; /* Green color */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.start-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}</style>
+</head>
+<body>
+    <div class="bgimg">
+        <div class="middle">
+            <h1 class="sliding-text">CLIMA QUEST</h1>
+            <a href="avatarpage.html" class="start-button">START</a>
+        </div>
+    </div>
+</body>
+</html>

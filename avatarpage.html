@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Select Your Avatar</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body, html {
+        height: 100%;
+        font-family: 'Press Start 2P', cursive; /* Game-style font */
+        
+    }
+    .bgimg {
+        background-image: url('UG9KXRgvR4-JIgE3u-8u3Q.webp'); /* Replace with your background image URL */
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+   
+    .container {
+        text-align: center;
+        background-color: rgba(40, 146, 100, 0.8); /* Dark semi-transparent container */
+        padding: 200px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        max-width: 1000px;
+    }
+    
+    h1 {
+        margin-bottom: 30px;
+    }
+    
+    .avatar-selection {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .avatar {
+        margin: 0 15px;
+        cursor: pointer;
+        border: 2px solid transparent; /* Default border */
+        transition: border-color 0.3s ease;
+    }
+    
+    .avatar img {
+        width: 100px; /* Adjust size as needed */
+        height: auto;
+    }
+    
+    .avatar.selected {
+        border-color: yellow; /* Yellow border for selected avatar */
+    }
+    
+    button {
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        color: rgb(9, 3, 3);
+        background-color: #c8ff00; /* Blue color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #afc607; /* Darker blue on hover */
+    }</style>
+</head>
+<body>
+    <div class="bgimg">
+       <div class="container">
+        <h1>Select Your Avatar</h1>
+        <div class="avatar-selection">
+            <div class="avatar" onclick="selectAvatar(this)">
+                <img src="https://example.com/avatar1.png" alt="Avatar 1"> <!-- Replace with actual avatar images -->
+            </div>
+            <div class="avatar" onclick="selectAvatar(this)">
+                <img src="https://example.com/avatar2.png" alt="Avatar 2"> <!-- Replace with actual avatar images -->
+            </div>
+            <div class="avatar" onclick="selectAvatar(this)">
+                <img src="https://example.com/avatar3.png" alt="Avatar 3"> <!-- Replace with actual avatar images -->
+            </div>
+        </div>
+        <button id="nextButton"onclick="goToNextPage()">Next</button> <!-- Always enabled -->
+    </div>
+
+    <script>
+        function selectAvatar(avatarDiv) {
+            // Remove 'selected' class from all avatars
+            document.querySelectorAll('.avatar').forEach(avatar => {
+                avatar.classList.remove('selected');
+            });
+            // Add 'selected' class to the clicked avatar
+            avatarDiv.classList.add('selected');
+        }
+        function goToNextPage() {
+            // Redirect to the next page (e.g., game.html)
+            window.location.href = 'levelspage.html';}
+    </script>
+</body>
+</html>

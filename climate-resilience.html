@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page with Next Button</title>
+  <STYLE> * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .video-container {
+    margin-bottom: 20px;
+  }
+  
+  video {
+    width: 80%; /* Increase or decrease the percentage to adjust size */
+    max-width: 900px; /* Set maximum width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .next-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .next-button:hover {
+    background-color: #45a049;
+  }
+  </STYLE>
+</head>
+<body>
+
+  <div class="container">
+    <div class="video-container">
+      <video controls>
+        <!-- Replace 'your-canva-video.mp4' with your exported Canva video file -->
+        <source src="your-canva-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="button-container">
+      <button class="next-button" onclick="goToNextPage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function goToNextPage() {
+      window.location.href = "nextpage.html"; // Replace with your next page URL
+    }
+  </script>
+
+</body>
+</html>
