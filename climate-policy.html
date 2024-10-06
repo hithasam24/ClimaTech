@@ -41,7 +41,7 @@
   
   video {
     width: 300%; /* Increase or decrease the percentage to adjust size */
-    max-width: 1200px; /* Set maximum width for larger screens */
+    max-width: 1000px; /* Set maximum width for larger screens */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -66,6 +66,21 @@
   .next-button:hover,.back-button:hover {
     background-color: #45a049;
   }
+  .earth-map-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #010702;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+        }
+        .earth-map-btn:hover {
+            background-color: #45a049;
+        }
   </STYLE>
 </head>
 <body>
@@ -83,6 +98,7 @@
         <button class="next-button" onclick="goToNextPage()">NEXT</button>
       
     </div>
+    <div> <a href="https://www.eodms-sgdot.nrcan-rncan.gc.ca/index-en.html" class="earth-map-btn">Earth Map</a></div>
   </div>
 
   <script>
