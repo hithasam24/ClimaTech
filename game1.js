@@ -1,60 +1,113 @@
-let publicSupport = 100;
-let budget = 1000;
-let energyMix = "Fossil Fuels";
+const energySources = [
+    { name: "Solar Energy", benefit: "Renewable and sustainable energy source" },
+    { name: "Wind Energy", benefit: "Reduces electricity bills" },
+    { name: "Hydro Energy", benefit: "Reduces reliance on fossil fuels" },
+    { name: "Geothermal Energy", benefit: "Provides constant energy supply" },
+];
 
-document.getElementById("build-solar").addEventListener("click", function() {
-    if (budget >= 300) {
-        budget -= 300;
-        publicSupport += 10;
-        energyMix = "Solar Energy";
-        updateGameInfo("Built a Solar Farm! Public support increased.");
-    } else {
-        updateGameInfo("Not enough budget to build a Solar Farm.");
+let score = 0;
+let timer;
+let timeLeft = 30;
+let selectedEnergy = null;
+let remainingPairs;
+
+function startGame() {
+    score = 0;
+    timeLeft = 30;
+    selectedEnergy = null;
+    remainingPairs = [...energySources]; // Create a copy of the energy sources for the game
+    document.getElementById("score").textContent = `Score: ${score}`;
+    document.getElementById("timer").textContent = `Time Left: ${timeLeft}`;
+    document.getElementById("end-message").textContent = "";
+    document.getElementById("instructions").textContent = "Select a renewable energy source and match it with its benefit!";
+    
+    renderEnergySources();
+    renderBenefits();
+    
+    timer = setInterval(updateTimer, 1000);
+}
+
+function renderEnergySources() {
+    const energySourceContainer = document.getElementById("energy-sources");
+    energySourceContainer.innerHTML = "";
+    remainingPairs.forEach(source => {
+        const card = createCard(source.name, handleEnergySelection);
+        energySourceContainer.appendChild(card);
+    });
+}
+
+function renderBenefits() {
+    const benefitsContainer = document.getElementById("benefits");
+    benefitsContainer.innerHTML = "";
+    const shuffledBenefits = shuffle([...remainingPairs.map(source => source.benefit)]);
+    shuffledBenefits.forEach(benefit => {
+        const card = createCard(benefit, handleBenefitSelection);
+        benefitsContainer.appendChild(card);
+    });
+}
+
+function createCard(text, onClick) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = text;
+    card.onclick = () => onClick(card.textContent);
+    return card;
+}
+
+function handleEnergySelection(energy) {
+    selectedEnergy = energy;
+    document.getElementById("instructions").textContent = `You selected ${energy}. Now, select the matching benefit!`;
+}
+
+function handleBenefitSelection(benefit) {
+    if (!selectedEnergy) {
+        alert("Please select an energy source first!");
+        return;
     }
-});
-
-document.getElementById("build-wind").addEventListener("click", function() {
-    if (budget >= 400) {
-        budget -= 400;
-        publicSupport += 15;
-        energyMix = "Wind Energy";
-        updateGameInfo("Built a Wind Turbine! Public support increased.");
+    
+    const selectedPair = remainingPairs.find(source => source.name === selectedEnergy);
+    if (selectedPair.benefit === benefit) {
+        score++;
+        document.getElementById("score").textContent = `Score: ${score}`;
+        remainingPairs = remainingPairs.filter(source => source.name !== selectedEnergy);
+        document.getElementById("instructions").textContent = `Correct! ${selectedEnergy} matched with its benefit.`;
     } else {
-        updateGameInfo("Not enough budget to build a Wind Turbine.");
+        document.getElementById("instructions").textContent = `Wrong match. Try again!`;
     }
-});
 
-document.getElementById("community-outreach").addEventListener("click", function() {
-    if (budget >= 200) {
-        budget -= 200;
-        publicSupport += 5;
-        updateGameInfo("Conducted Community Outreach! Public support increased.");
+    selectedEnergy = null;
+    
+    if (remainingPairs.length === 0) {
+        endGame();
     } else {
-        updateGameInfo("Not enough budget for Community Outreach.");
-    }
-});
-
-document.getElementById("next-turn").addEventListener("click", function() {
-    publicSupport -= 5; // Simulate public support decrease each turn
-    updateGameInfo("End of turn. Public support decreased.");
-});
-
-function updateGameInfo(message) {
-    document.getElementById("public-support").innerText = publicSupport;
-    document.getElementById("budget").innerText = budget;
-    document.getElementById("energy-mix").innerText = energyMix;
-    document.getElementById("messages").innerText = message;
-
-    // Check for game over conditions
-    if (publicSupport <= 0) {
-        alert("Game Over! Public support has fallen to zero.");
-        resetGame();
+        renderEnergySources();
+        renderBenefits();
     }
 }
 
-function resetGame() {
-    publicSupport = 100;
-    budget = 1000;
-    energyMix = "Fossil Fuels";
-    updateGameInfo("Game reset. Good luck!");
+function updateTimer() {
+    timeLeft--;
+    document.getElementById("timer").textContent = `Time Left: ${timeLeft}`;
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        endGame();
+    }
 }
+
+function endGame() {
+    document.getElementById("instructions").textContent = "";
+    document.getElementById("end-message").textContent = `Time's up! Your final score is: ${score}`;
+    document.getElementById("energy-sources").innerHTML = "";
+    document.getElementById("benefits").innerHTML = "";
+    clearInterval(timer);
+}
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+document.getElementById("start-btn").onclick = startGame;
