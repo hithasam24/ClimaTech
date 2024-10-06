@@ -1,15 +1,27 @@
-
-   
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport", content="width=device-width, initial-scale=1.0">
-            <title>Flappy Bird</title>
-             <link rel="stylesheet" href="game1.css">
-            <script src="game1.js" charset="utf-8"></script>
-        </head>
-        <body>
-            <canvas id="board"></canvas>
-        </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCity Builders</title>
+    <link rel="stylesheet" href="game1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EcoCity Builders</h1>
+        <div id="game-info">
+            <p><strong>Public Support:</strong> <span id="public-support">100</span></p>
+            <p><strong>Budget:</strong> $<span id="budget">1000</span></p>
+            <p><strong>Energy Mix:</strong> <span id="energy-mix">Fossil Fuels</span></p>
+        </div>
+        <div id="actions">
+            <button id="build-solar">Build Solar Farm ($300)</button>
+            <button id="build-wind">Build Wind Turbine ($400)</button>
+            <button id="community-outreach">Community Outreach ($200)</button>
+        </div>
+        <div id="messages"></div>
+        <button id="next-turn">Next Turn</button>
+    </div>
+    <script src="game1.js"></script>
+</body>
+</html>
