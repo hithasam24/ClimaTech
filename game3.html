@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Smart Farming</title>
+    <link rel="stylesheet" href="game3.css">
+</head>
+<body>
+    <h1>Climate Smart Farming</h1>
+    <div id="game">
+        <p>Welcome to your farm! Make sustainable choices to earn Sustainability Points!</p>
+        <div id="stats">
+            <p>Water: <span id="water">100</span></p>
+            <p>Soil Health: <span id="soil">100</span></p>
+            <p>Energy: <span id="energy">100</span></p>
+            <p>Sustainability Points: <span id="sustainability">0</span></p>
+        </div>
+        <div id="actions">
+            <button onclick="plantCrops()">Plant Crops</button>
+            <button onclick="installSolar()">Install Solar Panels</button>
+            <button onclick="harvestRainwater()">Harvest Rainwater</button>
+            <button onclick="useFertilizer()">Use Fertilizer</button>
+        </div>
+        <p id="message"></p>
+    </div>
+    <script src="game3.js"></script>
+</body>
+</html>
